@@ -1,0 +1,26 @@
+name: Java Associative Property Check
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t associative-property-check .
+
+      - name: Run Docker container
+        run: docker run associative-property-check
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: associative-property-results
+          path: answer_associativity.txt

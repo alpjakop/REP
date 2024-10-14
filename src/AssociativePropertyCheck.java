@@ -1,21 +1,29 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 public class AssociativePropertyCheck {
 
     public static void main(String[] args) {
         int trials = 1000000;
+        String filePath = "answer_associativity.txt";
 
-        System.out.println("Checking associative property for doubles:");
-        checkAssociativePropertyForDouble(trials);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write("Checking associative property for doubles:\n");
+            checkAssociativePropertyForDouble(trials, writer);
 
-        System.out.println("\nChecking associative property for floats:");
-        checkAssociativePropertyForFloat(trials);
+            writer.write("\nChecking associative property for floats:\n");
+            checkAssociativePropertyForFloat(trials, writer);
 
-        System.out.println("\nChecking associative property for ints:");
-        checkAssociativePropertyForInt(trials);
+            writer.write("\nChecking associative property for ints:\n");
+            checkAssociativePropertyForInt(trials, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private static void checkAssociativePropertyForDouble(int trials) {
+    private static void checkAssociativePropertyForDouble(int trials, BufferedWriter writer) throws IOException {
         int countEqual = 0;
         Random random = new Random();
 
@@ -33,10 +41,10 @@ public class AssociativePropertyCheck {
         }
 
         double percentage = (countEqual / (double) trials) * 100;
-        System.out.printf("Percentage for double: %.6f%%\n", percentage);
+        writer.write(String.format("Percentage for double: %.6f%%\n", percentage));
     }
 
-    private static void checkAssociativePropertyForFloat(int trials) {
+    private static void checkAssociativePropertyForFloat(int trials, BufferedWriter writer) throws IOException {
         int countEqual = 0;
         Random random = new Random();
 
@@ -54,10 +62,10 @@ public class AssociativePropertyCheck {
         }
 
         float percentage = (countEqual / (float) trials) * 100;
-        System.out.printf("Percentage for float: %.6f%%\n", percentage);
+        writer.write(String.format("Percentage for float: %.6f%%\n", percentage));
     }
 
-    private static void checkAssociativePropertyForInt(int trials) {
+    private static void checkAssociativePropertyForInt(int trials, BufferedWriter writer) throws IOException {
         int countEqual = 0;
         Random random = new Random();
 
@@ -75,6 +83,6 @@ public class AssociativePropertyCheck {
         }
 
         double percentage = (countEqual / (double) trials) * 100;
-        System.out.printf("Percentage for int: %.6f%%\n", percentage);
+        writer.write(String.format("Percentage for int: %.6f%%\n", percentage));
     }
 }

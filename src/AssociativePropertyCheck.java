@@ -7,7 +7,7 @@ public class AssociativePropertyCheck {
 
     public static void main(String[] args) {
         int trials = 1000000;
-        String filePath = "../answer_associativity.txt";
+        String filePath = "answer_associativity.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write("Checking associative property for doubles:\n");

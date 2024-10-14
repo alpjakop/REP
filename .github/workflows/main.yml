@@ -17,7 +17,7 @@ jobs:
         run: docker build -t associative-property-check .
 
       - name: Run Docker container
-        run: docker run associative-property-check
+        run: docker run -v ${{ github.workspace }}:/app associative-property-check
 
       - name: Upload results
         uses: actions/upload-artifact@v4

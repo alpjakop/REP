@@ -1,8 +1,8 @@
 Checking associative property for doubles:
-Percentage for double (modified order): 82.813200%
+Percentage for double (modified order): 82.827600%
 
 Checking associative property for floats:
-Percentage for float: 82.778603%
+Percentage for float (modified order): 82.751297%
 
 Checking associative property for ints:
-Percentage for int: 100.000000%
+Percentage for int (modified order): 100.000000%

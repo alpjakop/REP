@@ -24,3 +24,11 @@ jobs:
         with:
           name: associative-property-results
           path: answer_associativity.txt
+
+      - name: Commit and push the results to GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add answer_associativity.txt
+          git commit -m "Update associative property results"
+          git push

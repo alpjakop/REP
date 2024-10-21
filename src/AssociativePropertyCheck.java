@@ -5,7 +5,6 @@ public class AssociativePropertyCheck {
     public static void main(String[] args) {
         int trials = 1000000;
         
-        System.out.println("\nChecking associative property for floats:");
         checkAssociativePropertyForFloat(trials);
     }
 
@@ -27,7 +26,7 @@ public class AssociativePropertyCheck {
         }
 
         float percentage = (countEqual / (float) trials) * 100;
-        System.out.printf("Percentage for float (modified order): %.6f%%\n", percentage);
+        System.out.printf("%.2f\n", percentage);
     }
 
 }

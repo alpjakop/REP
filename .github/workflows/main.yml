@@ -16,16 +16,21 @@ jobs:
       - name: Build Docker image
         run: docker build -t associative-property-check .
 
-      - name: Run Docker container and save output
-        run: docker run associative-property-check > serialized/pushed/answer_associativity.txt
+      - name: Run Docker container and generate results
+        run: docker run associative-property-check > answer_associativity.txt
 
-      # Commit the results to the repository
-      - name: Commit results
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add serialized/pushed/answer_associativity.txt
-          git commit -m "Update answer_associativity.txt with latest results"
-          git push
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: associative-property-results
+          path: answer_associativity.txt
+
+      - name: Commit and push the results to GitHub
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com"
+          git add answer_associativity.txt
+          git commit -m "Update associative property results"
+          git push https://alpjakop:${{ secrets.PAT_TOKEN }}@github.com/alpjakop/REP/

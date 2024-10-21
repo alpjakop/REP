@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - floating-point-order-change
 
 jobs:
   build:

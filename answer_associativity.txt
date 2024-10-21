@@ -1,11 +1,1 @@
-Checking associative property for doubles:
-Percentage for double: 82.748800%
-
-Checking associative property for floats:
-Percentage for float: 82.788002%
-
-Checking associative property with precision limitation:
-Percentage with precision limitation: 74.555700%
-
-Checking associative property for ints:
-Percentage for int: 100.000000%
+100.00

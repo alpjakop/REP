@@ -33,4 +33,4 @@ jobs:
           git config --local user.email "action@github.com"
           git add answer_associativity.txt
           git commit -m "Update associative property results"
-          git push https://alpjakop:${{ secrets.PAT_TOKEN }}@github.com/alpjakop/REP.git
+          git push https://alpjakop:${{ secrets.PAT_TOKEN }}@github.com/alpjakop/REP/

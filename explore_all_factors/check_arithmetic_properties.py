@@ -15,7 +15,7 @@ def check_property(operation1, operation2, repetitions):
         if result1 == result2:
             correct_count += 1
 
-    print(f"Out of {{repetitions}} trials, the property held {{correct_count}} times.")
+    print(f"Out of {repetitions} trials, the property held {correct_count} times.")
 
 if __name__ == "__main__":
     # Parse arguments at runtime

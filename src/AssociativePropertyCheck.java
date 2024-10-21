@@ -1,6 +1,3 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Random;
 
 public class AssociativePropertyCheck {
@@ -18,25 +15,26 @@ public class AssociativePropertyCheck {
     }
 
     private static void checkAssociativePropertyForDouble(int trials) {
-        int countEqual = 0;
-        Random random = new Random();
+    int countEqual = 0;
+    Random random = new Random();
 
-        for (int i = 0; i < trials; i++) {
-            double x = random.nextDouble();
-            double y = random.nextDouble();
-            double z = random.nextDouble();
+    for (int i = 0; i < trials; i++) {
+        double x = random.nextDouble();
+        double y = random.nextDouble();
+        double z = random.nextDouble();
 
-            double leftSide = (x + y) + z;
-            double rightSide = x + (y + z);
+        double leftSide = x + (y + z);  // Changed from (x + y) + z
+        double rightSide = (x + y) + z; // Changed from x + (y + z)
 
-            if (leftSide == rightSide) {
-                countEqual++;
-            }
+        if (leftSide == rightSide) {
+            countEqual++;
         }
-
-        double percentage = (countEqual / (double) trials) * 100;
-        System.out.printf("Percentage for double: %.6f%%\n", percentage);
     }
+
+    double percentage = (countEqual / (double) trials) * 100;
+    System.out.printf("Percentage for double (modified order): %.6f%%\n", percentage);
+}
+
 
     private static void checkAssociativePropertyForFloat(int trials) {
         int countEqual = 0;
@@ -47,8 +45,8 @@ public class AssociativePropertyCheck {
             float y = random.nextFloat();
             float z = random.nextFloat();
 
-            float leftSide = (x + y) + z;
-            float rightSide = x + (y + z);
+            float leftSide = x + (y + z);  // Changed from (x + y) + z
+            float rightSide = (x + y) + z; // Changed from x + (y + z)
 
             if (leftSide == rightSide) {
                 countEqual++;
@@ -68,8 +66,8 @@ public class AssociativePropertyCheck {
             int y = random.nextInt();
             int z = random.nextInt();
 
-            int leftSide = (x + y) + z;
-            int rightSide = x + (y + z);
+            int leftSide = x + (y + z);
+            int rightSide = (x + y) + z;
 
             if (leftSide == rightSide) {
                 countEqual++;

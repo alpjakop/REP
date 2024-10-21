@@ -1,7 +1,9 @@
 from jinja2 import Template
+import os
 
 # Load the template
-template_content = open('explore_all_factors/property_template.py.jinja').read()
+template_path = 'Template_Based/property_template.py.jinja'
+template_content = open(template_path).read()
 template = Template(template_content)
 
 # Define different variability factors
@@ -14,20 +16,26 @@ factors = {
 # Render the template with specific values
 generated_code = template.render(factors)
 
-# Save the generated code to a Python file
-with open('generated_property_check.py', 'w') as f:
+# Define the output path
+output_path = os.path.join('Template_Based', 'generated_property_check.py')
+
+# Save the generated code to a Python file in the Template_Based directory
+with open(output_path, 'w') as f:
     f.write(generated_code)
 
-print("Generated code has been written to 'generated_property_check.py'.")
+print(f"Generated code has been written to '{output_path}'.")
 
+# Define additional factor combinations
 factor_combinations = [
     {"operation1": "(x + y) + z", "operation2": "x + (y + z)", "repetitions": 1000},
     {"operation1": "x + y", "operation2": "y + x", "repetitions": 500},
 ]
 
+# Generate and run code for each combination
 for factors in factor_combinations:
     generated_code = template.render(factors)
-    with open('generated_property_check.py', 'w') as f:
+    # Save the generated code to the same file (overwrites previous)
+    with open(output_path, 'w') as f:
         f.write(generated_code)
 
     # Run the generated code automatically (in a real scenario, you'd use subprocess)

@@ -54,7 +54,7 @@ public class AssociativePropertyCheck {
         }
 
         float percentage = (countEqual / (float) trials) * 100;
-        System.out.printf("Percentage for float: %.6f%%\n", percentage);
+        System.out.printf("Percentage for float (modified order): %.6f%%\n", percentage);
     }
 
     private static void checkAssociativePropertyForInt(int trials) {
@@ -75,6 +75,6 @@ public class AssociativePropertyCheck {
         }
 
         double percentage = (countEqual / (double) trials) * 100;
-        System.out.printf("Percentage for int: %.6f%%\n", percentage);
+        System.out.printf("Percentage for int (modified order): %.6f%%\n", percentage);
     }
 }

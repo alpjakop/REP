@@ -2,8 +2,8 @@
 
 ## Dockerfile
 Execute by using the commands found in the Dockerfile  
-docker build -t associative-property-check .  
-docker run associative-property-check
+<code> docker build -t associative-property-check . </code> 
+<code> docker run associative-property-check </code> 
 
 ## Files
 - **src/AssociativePropertyCheck.java :** Main program, creates **answer_associativity.txt** file

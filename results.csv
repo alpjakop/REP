@@ -1,0 +1,13 @@
+operation1,operation2,repetitions,correct_count
+(x + y) + z,x + (y + z),500,420
+(x + y) + z,x + (y + z),1000,830
+(x + y) + z,x + (y + z),2000,1640
+x + y,y + x,500,500
+x + y,y + x,1000,1000
+x + y,y + x,2000,2000
+(x * y) * z,x * (y * z),500,323
+(x * y) * z,x * (y * z),1000,656
+(x * y) * z,x * (y * z),2000,1255
+x * (y / z),(x * y) / z,500,312
+x * (y / z),(x * y) / z,1000,685
+x * (y / z),(x * y) / z,2000,1297
